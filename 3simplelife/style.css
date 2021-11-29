@@ -1,0 +1,303 @@
+body {
+  margin: 0;
+  font-family: "Ubuntu Light", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  /* we have used block because default behaviour of img tag is inline so to start from a new line and have some padding from top and bottom we used block  */
+}
+
+.image-full {
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 2em;
+}
+
+/* typography */
+
+h1,
+h2,
+h3 {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  color: #143774;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+h3 {
+  color: #1792d2;
+}
+
+a {
+  color: #1792d2;
+  /* font-weight: bolder; 
+  means if we have the font-weight 300. so if we use bolder means one scale up suppose next font-weight available is 400 so it will make font-weight of 400 to the text.
+  whereas if we use font-weight: bold; it will jump to font-weight of 700 */
+}
+
+a:hover,
+a:focus {
+  color: #143774;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* h1  logo subtitle */
+
+.subtitle {
+  font-weight: 700;
+  color: #1792d2;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.article-title {
+  font-size: 1.5rem;
+}
+
+.article-read-more,
+.article-info {
+  font-size: 0.875rem;
+}
+
+.article-read-more {
+  color: #1792d2;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.article-read-more:hover,
+.article-read-more:focus {
+  color: #143774;
+  text-decoration: underline;
+}
+
+.article-info {
+  margin: 2em 0;
+}
+
+.widget-title,
+.widget-recent-post-title {
+  font-size: 1rem;
+}
+
+.widget-title {
+  font-family: "Ubuntu Light", sans-serif;
+  font-weight: 700;
+}
+.widget-recent-post-title {
+  color: #143774;
+}
+
+/* layout */
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  /* we want our content to show upto 90% of the screen and we don't our content to exceed 900px width. */
+  margin: 0 auto;
+  /* giving margin from left right actually keeps the content in center even if we decrease the window-size */
+}
+
+.container-flex {
+  display: flex;
+  /* it will consider two items as flex items one is the div and other one is nav  */
+  justify-content: space-between;
+  /* after applying this it will create a gap between the div and the nav items because this flex has considered them as two items */
+  flex-direction: column;
+}
+
+header {
+  background: #f8f8f8;
+  padding: 2em 0;
+  /* 2em= 16px*2=32px */
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+footer {
+  background: #143774;
+  padding: 3em 0;
+  text-align: center;
+  color: white;
+}
+
+@media (min-width: 675px) {
+  .container-flex {
+    flex-direction: row;
+  }
+  main {
+    width: 70%;
+  }
+
+  aside {
+    width: 25%;
+    min-width: 200px;
+    /* it would set the minimum size of the screen to 200px */
+    margin-left: 1em;
+    /* while we shorten the screen the columns would have space of 1em and they will not collapse each other */
+  }
+}
+
+/* navigation */
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  /* if we would have used justify: space-between; then the space between the flex-items would have increased with the size of the window and we does not want that.
+  if we would have chose text-align: center; then it would not have worked.because text-align: center; centers the text within its parent here parent of nav is header.
+  if we would have used text-align: center; then it would have centered home, about me, recent posts according to the li tag and the way we wanted.   */
+}
+
+nav li {
+  margin-left: 2em;
+}
+
+nav a {
+  text-decoration: none;
+  color: #707070;
+  font-weight: 700;
+  padding: 0.25em 0;
+  /* padding also makes it easier to click with fingers while you use mobile or tablet */
+}
+
+/*
+ we should not use stuff like:
+nav ul li a {
+  margin: 2px;
+}
+or 
+nav ul li{
+  text-decoration: none;
+}
+because it takes more time by the browser to read the details and also it makes code look unecssarily comlicated.
+we should follow the above procedure(above then this comment) 
+ */
+
+nav a:hover,
+nav a:focus {
+  color: #1792d2;
+}
+
+.current-page {
+  border-bottom: 1px solid #707070;
+}
+
+.current-page:hover {
+  color: #707070;
+}
+
+@media (max-width: 675px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li {
+    margin: 0.5em 0;
+  }
+}
+
+/* articles */
+
+.article-featured {
+  border-bottom: #707070 1px solid;
+  padding-bottom: 1em;
+  margin-bottom: 3em;
+  background: white;
+}
+
+.article-recent {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-recent-main {
+  order: 2;
+  /* we are setting the order of the class so that sequence of the content is as per our need */
+  /* smaller number always goes first no matter it negative or 0. */
+}
+
+.article-recent-secondary {
+  order: 1;
+}
+
+@media (min-width: 675px) {
+  .article-recent {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .article-recent-main {
+    width: 68%;
+  }
+
+  .article-recent-secondary {
+    width: 30%;
+  }
+
+  .article-image {
+    width: 100%;
+    min-height: 250px;
+    object-fit: cover;
+  }
+
+  .article-deco-image {
+    object-position: -15px 10px;
+    /* since our deco image is not fitting properly we will define x and y coords using object-position    */
+  }
+
+  .article-featured {
+    display: flex;
+    flex-direction: column;
+    /* we have used flex because we can't change the order until we have display:flex; property */
+  }
+
+  .article-image {
+    order: -1;
+  }
+
+  .article-info {
+    order: -1;
+  }
+}
+
+/* widgets */
+
+.sidebar-widget {
+  border: 20px solid #efefef;
+  margin-bottom: 2em;
+  padding: 1em;
+}
+
+.widget-recent-post {
+  display: flex;
+  flex-direction: column;
+  /* since we want our main axis as column and cross axis as row. then the content will be shown in row  */
+  border-bottom: 1px solid #707070;
+  margin-bottom: 1em;
+}
+
+.widget-recent-post:last-child {
+  border: 0;
+  margin: 0;
+}
+
+.widget-image {
+  order: -1;
+  /* we have flex property on widget-recent-post class and that is why we have the permission of using order here */
+  /* here -1  will allow the image to come before the text*/
+}

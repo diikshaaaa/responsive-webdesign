@@ -1,0 +1,119 @@
+body {
+  font-size: 1.125em;
+  /* here the em will take the reference of its parent element because it is used with font-size . stable versions of browsers have 16px of default font-size */
+  color: #707070;
+  margin: 0;
+}
+
+/* from minimum width 650px and bigger */
+@media (min-width: 650px) and (orientation: landscape) {
+  /* 
+  it means when the width is equal to or more than 650px and the orientation is landscape then the stuff inside the braces will be applied.
+  
+  Lanscape Orientation is the horizontal orientation in which the long sides of the rectangle are at the top and the bottom.
+
+  Portrait orientation is the one in which the longer sides of the rectangle are vertical.
+  */
+  body {
+    background: white;
+  }
+}
+
+/* from minimum width 400px and bigger */
+@media (min-width: 400px) and (max-width: 649px) {
+  body {
+    background: purple;
+  }
+}
+
+/*  if we write two sttributes for a tag then the attribute written on second number will win
+p{
+  color: red;
+}
+
+p{
+  color: yellow;
+}
+
+here yellow will win
+*/
+
+/* typography */
+
+h1 {
+  font-size: 3rem;
+  /* rem takes the reference of the root element (means html tag and not body) */
+  color: #212614;
+  text-align: center;
+}
+
+h1 span {
+  color: #b7832f;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+/* layout */
+
+img {
+  max-width: 100%;
+  /* here we our image won't exceed the width of 980px */
+}
+
+.container {
+  width: 95%;
+  max-width: 980px;
+  margin: 0 auto;
+  /* here our content will show upto 95% of the screen and the width it can take is 980px */
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+  /* space-between evenly distributes the space between the elements whereas sin space-around evenly distributes the space before and after each flex item. while space-evenly tries to make the flex items visually look balance */
+  margin: 1rem 0;
+}
+
+@media (max-width: 600px) {
+  .columns {
+    flex-direction: column;
+  }
+}
+
+.col-1 {
+  width: 20%;
+}
+
+.col-2 {
+  width: 45%;
+}
+
+.col-3 {
+  width: 70%;
+}
+
+.col-bg {
+  background: #212614;
+  color: #fff;
+  padding: 1em;
+  /* here em will take the reference of the element   */
+}
+
+@media (max-width: 600px) {
+  .columns {
+    flex-direction: column;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3 {
+    width: 100%;
+    /* this is because if want to align everything when the screen is smaller then we need to give 100% width to the columns  */
+  }
+}
